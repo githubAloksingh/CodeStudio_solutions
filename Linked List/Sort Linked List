@@ -1,0 +1,45 @@
+/****************************************************************
+
+ Following is the class structure of the Node class:
+
+ class Node {
+     public int data;
+     public Node next;
+
+     Node()
+     {
+         this.data = 0;
+         this.next = null;
+     }
+     Node(int data)
+     {
+         this.data = data;
+         this.next = null;
+     }
+     Node(int data, Node next)
+     {
+         this.data = data;
+         this.next = next;
+     }
+ }
+
+ *****************************************************************/
+import java.util.*;
+public class Solution {
+    public static Node sortList(Node head) {
+        //Write your code here
+        ArrayList<Integer> ts=new ArrayList<Integer>();
+        Node curr=head;
+        Node temp=head;
+        while(curr!=null){
+            ts.add(curr.data);
+            curr=curr.next;
+        }
+        Collections.sort(ts);
+        for(int i=0;i<ts.size();i++){
+            temp.data=ts.get(i);
+            temp=temp.next;
+        }
+        return head;
+        }
+}
